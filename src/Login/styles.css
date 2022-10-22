@@ -1,13 +1,16 @@
 .container {
  padding: 0;
+ margin: 0;
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  font-style: normal;
 }
 
 .userView{
+    float: left;
     background-color: #F5E658;
     width:45vw;
     height: 107vh;
+    min-height: 107vh;
 }
 
 .userView img{
@@ -39,4 +42,40 @@
     color: rgba(2, 2, 2, 0.531);
     font-size: 26px;
 }
+.loginView{
+    float: right;
+    width:52vw;
+    height: 107vh;
+    min-height: 107vh;
+}
+input{
+    width: 320px;
+    display: block;
+    margin-left: 15vw;
+    margin-top: 1vh;
+    border-radius: 8px;
+    padding: 2%; 
+}
+.inputEmail{
+  
+}
+.inputSenha{
+   
+}
+.wantCreateAccount{
+    color: #8d8d8d;
+    margin-left: 18.5vw;
+}
+.buttonSubmit{
+    width: 320px;
+    display: block;
+    margin-left: 16vw;
+    margin-top: 1vh;
+    border-radius: 8px;
+    padding: 2%;
+    color: white;
+    background-color: #FC7C7C;
+    border-color: #8d8d8d00;
+}
+
   
