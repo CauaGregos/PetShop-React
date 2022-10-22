@@ -1,0 +1,42 @@
+.container {
+ padding: 0;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ font-style: normal;
+}
+
+.userView{
+    background-color: #F5E658;
+    width:45vw;
+    height: 107vh;
+}
+
+.userView img{
+    width: 40%;
+}
+.catImage{
+    margin-left: -20%;
+}
+.dogImage{
+    margin-top: 15%;
+    width: 60% !important;
+}
+.textView{
+    margin-left: 10%;
+    width: 70%;
+}
+.subTextView{
+    margin-left: 10%;
+    width: 70%;
+    margin-top: 3vh;
+}
+.description{
+    font-size: 36px;
+    font-weight: 700;
+    text-align: justify;
+    
+}
+.subdescription{
+    color: rgba(2, 2, 2, 0.531);
+    font-size: 26px;
+}
+  
