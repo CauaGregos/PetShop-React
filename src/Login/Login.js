@@ -26,7 +26,7 @@ function Login() {
             <div style={{marginTop:'30%'}}>
                 <input className="inputEmail" placeholder="Email"/>
                 <input className="inputSenha" placeholder="Senha"/>
-                <text className="wantCreateAccount" >----<a href="#">Quero criar minha conta</a>----</text>
+                <text className="wantCreateAccount" >----<a href="/register">Quero criar minha conta</a>----</text>
                 <button className="buttonSubmit" onClick={e=>login()}>Enviar</button>
             </div>
         </div>

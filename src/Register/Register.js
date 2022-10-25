@@ -27,7 +27,7 @@ function Register() {
                 <input className="inputEmail" placeholder="Email"/>
                 <input className="inputSenha" placeholder="Senha"/>
                 <button className="buttonSubmit" onClick={e=>login()}>Finalizar meu cadastro</button>
-                <text className="wantCreateAccount" >Já tenho uma conta.<a href="#">Fazer login</a></text>
+                <text className="wantCreateAccount" >Já tenho uma conta.<a href="/">Fazer login</a></text>
             </div>
         </div>
     </div>
