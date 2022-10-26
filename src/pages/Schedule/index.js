@@ -7,7 +7,7 @@ function Schedule() {
 
   return (
     <div className="container">
-        <h1>O Oásis do seu Pet!</h1>
+        <h1 style={{fontSize:'10vh',color:'#FFF'}}>O Oásis do seu Pet!</h1>
     </div>
   );
 }
