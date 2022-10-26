@@ -11,7 +11,7 @@ function Login() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const user = localStorage.getItem('user')
+        const user = AuthService.getCurrentUser();
         if(user){
             navigate('/Home')
         }
