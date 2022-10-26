@@ -52,20 +52,15 @@
 input{
     width: 320px;
     display: block;
-    margin-left: 15vw;
+    /* margin-left: 15vw; */
     margin-top: 1vh;
     border-radius: 8px;
     padding: 2%; 
 }
-.inputEmail{
-  
-}
-.inputSenha{
-   
-}
+
 .wantCreateAccount{
     color: #8d8d8d;
-    margin-left: 18.5vw;
+    
 }
 .buttonSubmit{
     width: 320px;

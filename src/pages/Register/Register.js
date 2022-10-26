@@ -1,10 +1,9 @@
-
 import React from "react";
-import './styles.css'
-import Cat from '../assets/cat.png'
-import Dog from '../assets/dog.png'
+import './style.css'
+import Cat from '../../assets/cat.png'
+import Dog from '../../assets/dog.png'
 
-function Login() {
+function Register() {
     const login = () => {
 
     };
@@ -24,14 +23,15 @@ function Login() {
         </div>
         <div className="loginView">
             <div style={{marginTop:'30%'}}>
+                <input className="inputEmail" placeholder="Nome Completo"/>
                 <input className="inputEmail" placeholder="Email"/>
                 <input className="inputSenha" placeholder="Senha"/>
-                <text className="wantCreateAccount" >----<a href="#">Quero criar minha conta</a>----</text>
-                <button className="buttonSubmit" onClick={e=>login()}>Enviar</button>
+                <button className="buttonSubmit" onClick={e=>login()}>Finalizar meu cadastro</button>
+                <text className="wantCreateAccount" >Já tenho uma conta.<a href="#">Fazer login</a></text>
             </div>
         </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;
