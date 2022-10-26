@@ -1,9 +1,10 @@
-import React from "react";
-import './style.css'
-import Cat from '../../assets/cat.png'
-import Dog from '../../assets/dog.png'
 
-function Register() {
+import React from "react";
+import './styles.css'
+import Cat from '../assets/cat.png'
+import Dog from '../assets/dog.png'
+
+function Login() {
     const login = () => {
 
     };
@@ -23,15 +24,14 @@ function Register() {
         </div>
         <div className="loginView">
             <div style={{marginTop:'30%'}}>
-                <input className="inputEmail" placeholder="Nome Completo"/>
                 <input className="inputEmail" placeholder="Email"/>
                 <input className="inputSenha" placeholder="Senha"/>
-                <button className="buttonSubmit" onClick={e=>login()}>Finalizar meu cadastro</button>
-                <text className="wantCreateAccount" >Já tenho uma conta.<a href="/">Fazer login</a></text>
+                
+                <button className="buttonSubmit" onClick={e=>login()}>Enviar</button>
             </div>
         </div>
     </div>
   );
 }
 
-export default Register;
+export default Login;
