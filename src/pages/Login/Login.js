@@ -13,7 +13,7 @@ function Login() {
     useEffect(() => {
         const user = AuthService.getCurrentUser();
         if(user){
-            navigate('/Home')
+            navigate('/ScheduleView')
         }
     }, []);
     
@@ -26,11 +26,7 @@ function Login() {
         } else {
             AuthService.login(email, senha).then(
                 () => {
-                    console.log("localStorage: " +
-
-                    localStorage.getItem("user"));
                     navigate("/Redirect");
-                    // window.location.reload(); // atualiza o localStorage
                 },
                 (error) => {
                     const resMessage =
@@ -62,7 +58,7 @@ function Login() {
         <div className="loginView">
             <div style={{marginTop:'30%',textAlign:'center',alignSelf:'center',alignContent:'center'}}>
                 <input id="email" placeholder="Email"/>
-                <input id="senha" placeholder="Senha"/>
+                <input type={'password'} id="senha" placeholder="Senha"/>
                 <p>----<a href="#">Quero criar minha conta</a>----</p>
                 <button className="buttonSubmit" onClick={e=>handleSubmit()}>Enviar</button>
                 <p>{mensage}</p>

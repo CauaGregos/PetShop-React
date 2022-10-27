@@ -4,11 +4,12 @@ import AuthService from "../../services/AuthService";
 import axios from "axios";
 import './style.css'
 import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ScheduleView = () => {
     const navigate = useNavigate();
     const [agendamentos,setAgendamentos] = useState([{}]);
-
+    const [isAccept,setIsAccept] = useState(false);
     useEffect(() => {
 
         const user = AuthService.getCurrentUser();
@@ -23,9 +24,16 @@ const ScheduleView = () => {
         .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
 
     
-        axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
-        .then((e) =>setAgendamentos([{id:e.data.id,email:e.data.email,data:e.data.data,horario:e.data.horario,pet:e.data.pet,especie:e.data.especie}]))
-    }, []);
+
+
+         // list of clients
+         let data = [];
+         axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
+         .then((res) =>{res.data.forEach(e => {
+             data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
+         }); setAgendamentos(data)})
+        
+    }, [agendamentos]);
 
     const cancelarAtendimento = (id) => {
         const confirmar = window.confirm('Deseja mesmo cancelar seu atendimento?');
@@ -35,30 +43,36 @@ const ScheduleView = () => {
 
     return(
         <div className="scheduleViewContainer">
+            
+            <div className="formContainerFather">
             <h1 className="scheduleTitle">Seus Agendamentos</h1>
-            <div className="formContainer">
-                <form>
+                <table className="formContainer">
                 <thead>
                     <tr>
                         <th>Data</th>
                         <th>Horario</th>
-                        <th>Nome do Pet</th>
+                        <th>Nome do pet</th>
                         <th>Especie</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="formBodySchedule">
                     {agendamentos.map(
                         (e) =>
-                            <tr key={e.id}>
+                            <tr style={e.aprovado? {backgroundColor:'#90f18786'}: {}} key={e.id}>
                                 <td>{e.data}</td>
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>
                                 <td>{e.especie}</td>
-                                <button onClick={()=>cancelarAtendimento(e.id)}>Cancelar</button>
+                                {!e.aprovado && <button className="formButtonSchedule"  onClick={()=>cancelarAtendimento(e.id)}>Cancelar</button>}
+                                
                             </tr>
                     )}
                 </tbody>
-                </form>
+                <tfoot>
+                <button className="formButtonAgend">Agendar</button>
+                </tfoot>
+                </table>
+               
             </div>
         </div>
     )

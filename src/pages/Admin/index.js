@@ -11,7 +11,6 @@ const AdminView = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-
         const user = AuthService.getCurrentUser();
         // check user data
         if(!user){
@@ -28,10 +27,11 @@ const AdminView = () => {
         let data = [];
         axios.get(`http://localhost:5092/api/Agendamento`)
         .then((res) =>{res.data.forEach(e => {
+            if(e.aprovado==false)
             data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
         }); setAgendamentos(data)})
 
-    }, []);
+    }, [agendamentos]);
 
     const cancelarAtendimento = (id) => {
         const confirmar = window.confirm('Deseja mesmo cancelar seu atendimento?');
@@ -51,13 +51,15 @@ const AdminView = () => {
         especie:e.especie,
         aprovado:true
     })
+    setAgendamentos([{}])
     };
 
     return(
-        <div className="adminViewContainer">
-            <h1 className="adminTitle">Agendamentos do PetShop</h1>
-            <div className="adminContainer">
-                <form>
+        <div className="AdminViewContainer">
+           
+            <div className="formContainerFather">
+            <h1 className="AdminTitle">Agendamentos do PetShop</h1>
+                <table className="formContainer">
                 <thead>
                     <tr>
                         <th>Data</th>
@@ -75,13 +77,13 @@ const AdminView = () => {
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>
                                 <td>{e.especie}</td>
-                                <td>{e.emaul}</td>
-                                <button onClick={()=>aceitarAtendimento(e)}>Aceitar</button>
-                                <button onClick={()=>cancelarAtendimento(e.id)}>Cancelar</button>
+                                <td>{e.email}</td>
+                                <button className="formButtonAdminAccept" onClick={()=>aceitarAtendimento(e)}>Aceitar</button>
+                                <button className="formButtonAdminCancel" onClick={()=>cancelarAtendimento(e.id)}>Cancelar</button>
                             </tr>
                     )}
                 </tbody>
-                </form>
+                </table>
             </div>
         </div>
     )
