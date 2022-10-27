@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.scheduleViewContainer{
+    text-align: center;
+    align-items: center;
+
+}
+
+.scheduleTitle{
+    margin-top: 5vh;
+}
