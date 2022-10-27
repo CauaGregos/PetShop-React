@@ -12,12 +12,14 @@ function Login() {
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
+        // if user logged before 
         if(user){
             navigate('/ScheduleView')
         }
     }, []);
     
     async function handleSubmit() {
+        // values of input fields
         let email = document.getElementById('email').value
         let senha = document.getElementById('senha').value
     
