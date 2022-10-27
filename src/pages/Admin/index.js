@@ -5,26 +5,32 @@ import axios from "axios";
 import './style.css'
 import { useNavigate } from "react-router";
 
-const ScheduleView = () => {
-    const navigate = useNavigate();
+const AdminView = () => {
+
     const [agendamentos,setAgendamentos] = useState([{}]);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
         const user = AuthService.getCurrentUser();
-
+        // check user data
         if(!user){
             setTimeout(() =>{
-                navigate("/Redirect");
+                navigate("/");
                 window.location.reload();
             },1000)
         }
-        axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
-        .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
+        // redirect if user is not authenticated
+        axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
+        .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect')})
 
-    
-        axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
-        .then((e) =>setAgendamentos([{id:e.data.id,email:e.data.email,data:e.data.data,horario:e.data.horario,pet:e.data.pet,especie:e.data.especie}]))
+        // list of clients
+        let data = [];
+        axios.get(`http://localhost:5092/api/Agendamento`)
+        .then((res) =>{res.data.forEach(e => {
+            data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
+        }); setAgendamentos(data)})
+
     }, []);
 
     const cancelarAtendimento = (id) => {
@@ -33,10 +39,24 @@ const ScheduleView = () => {
         confirmar && axios.delete(`http://localhost:5092/api/Agendamento/${id}`)
     };
 
+    const aceitarAtendimento = (e) => {
+        const confirmar = window.confirm(`Deseja mesmo aprovar o atendimento de ${e.email}?`);
+        // if confirmar like true update data of accept
+        confirmar && axios.put(`http://localhost:5092/api/Agendamento/${e.id}`,{
+        id:e.id,
+        email:e.email,
+        data:e.data,
+        horario:e.horario,
+        pet:e.pet,
+        especie:e.especie,
+        aprovado:true
+    })
+    };
+
     return(
-        <div className="scheduleViewContainer">
-            <h1 className="scheduleTitle">Seus Agendamentos</h1>
-            <div className="formContainer">
+        <div className="adminViewContainer">
+            <h1 className="adminTitle">Agendamentos do PetShop</h1>
+            <div className="adminContainer">
                 <form>
                 <thead>
                     <tr>
@@ -44,6 +64,7 @@ const ScheduleView = () => {
                         <th>Horario</th>
                         <th>Nome do Pet</th>
                         <th>Especie</th>
+                        <th>Contato</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +75,8 @@ const ScheduleView = () => {
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>
                                 <td>{e.especie}</td>
+                                <td>{e.emaul}</td>
+                                <button onClick={()=>aceitarAtendimento(e)}>Aceitar</button>
                                 <button onClick={()=>cancelarAtendimento(e.id)}>Cancelar</button>
                             </tr>
                     )}
@@ -65,4 +88,4 @@ const ScheduleView = () => {
 
 };
 
-export default ScheduleView;
+export default AdminView;

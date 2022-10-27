@@ -18,7 +18,7 @@ function Schedule() {
             },1000)
         }
         axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
-        .then((res) => {setAm(res.data)}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Register');localStorage.clear();})
+        .then((res) => {setAm(res.data)}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
     }, []);
 
   return (

@@ -29,7 +29,7 @@ function Login() {
                     console.log("localStorage: " +
 
                     localStorage.getItem("user"));
-                    navigate("/Home");
+                    navigate("/Redirect");
                     // window.location.reload(); // atualiza o localStorage
                 },
                 (error) => {
