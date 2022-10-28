@@ -7,17 +7,20 @@ import ScheduleView from '../pages/ScheduleView';
 import Redirect from '../pages/Redirect/redirect';
 import AdminView from '../pages/Admin';
 import Adminlist from '../pages/AdminList';
+import Logout from '../pages/Logout/Logout';
 export default function Rotas() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/"  element={<Login/>} component={Login} /> 
-                <Route path="/Home"  element={<Schedule/>} component={Schedule} /> 
-                <Route path="/Register"  element={<Register/>} component={Register} />     
-                <Route path="/ScheduleView"  element={<ScheduleView/>} component={ScheduleView} />    
-                <Route path="/Redirect"  element={<Redirect/>} component={Redirect} />     
-                <Route path="/Admin"  element={<AdminView/>} component={AdminView} />  
-                <Route path="/AdminList"  element={<Adminlist/>} component={Adminlist} />      
+                <Route path="/home"  element={<Schedule/>} component={Schedule} /> 
+                <Route path="/register"  element={<Register/>} component={Register} />     
+                <Route path="/scheduleview"  element={<ScheduleView/>} component={ScheduleView} />    
+                <Route path="/redirect"  element={<Redirect/>} component={Redirect} />     
+                <Route path="/admin"  element={<AdminView/>} component={AdminView} />  
+                <Route path="/adminlist"  element={<Adminlist/>} component={Adminlist} /> 
+                <Route path="/logout"  element={<Logout/>} component={Logout} /> 
+                
             </Routes>
         </BrowserRouter>
         

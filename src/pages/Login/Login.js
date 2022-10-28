@@ -44,13 +44,13 @@ function Login() {
     };
 
   return (
-    <div className="container">
+    <div className="containerLogin">
         <div className="userView">
             <img className="dogImage" src={Dog}/>
             <img className="catImage" src={Cat}/>
 
             <div className="textView">
-                <p className="description">Aqui você encontra tudo para seu pet!</p> 
+                <p className="descriptionLogin">Aqui você encontra tudo para seu pet!</p> 
             </div>
             <div className="subTextView">
                 <p className="subdescription">Nosso dever e fazer bem à aquele que te faz bem?</p> 
@@ -61,8 +61,8 @@ function Login() {
             <div style={{marginTop:'30%',textAlign:'center',alignSelf:'center',alignContent:'center'}}>
                 <input id="email" placeholder="Email"/>
                 <input type={'password'} id="senha" placeholder="Senha"/>
-                <p>----<a href="#">Quero criar minha conta</a>----</p>
-                <button className="buttonSubmit" onClick={e=>handleSubmit()}>Enviar</button>
+                <p className="wantCreateAccount"><a href="/register">Quero criar minha conta</a></p>
+                <button className="buttonSubmitLogin" onClick={e=>handleSubmit()}>Enviar</button>
                 <p>{mensage}</p>
             </div>
         </div>

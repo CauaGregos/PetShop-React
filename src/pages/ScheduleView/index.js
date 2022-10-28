@@ -6,6 +6,7 @@ import './style.css'
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { MdOutlineCancel } from "react-icons/md";
+import Header from "../../components/Header/header";
 const ScheduleView = () => {
     const navigate = useNavigate();
     const [agendamentos,setAgendamentos] = useState([{}]);
@@ -20,15 +21,15 @@ const ScheduleView = () => {
                 window.location.reload();
             },1000)
         }
-        axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
-        .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
-        
-         // list of clients
-         let data = [];
-         axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
-         .then((res) =>{res.data.forEach(e => {
-             data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
-         }); setAgendamentos(data)})
+            axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
+            .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
+            
+            // list of clients
+            let data = [];
+            axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
+            .then((res) =>{res.data.forEach(e => {
+                data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
+            }); setAgendamentos(data)})
         
     }, [agendamentos]);
 
@@ -41,6 +42,7 @@ const ScheduleView = () => {
 
     return(
         <div className="scheduleViewContainer">
+            <Header data={[]}/>
             <div className="formContainerFather">
             <h1 className="scheduleTitle">Seus Agendamentos</h1>
                 <table className="formContainer">

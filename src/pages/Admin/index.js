@@ -5,6 +5,7 @@ import axios from "axios";
 import './style.css'
 import { useNavigate } from "react-router";
 import { MdOutlineCancel,MdCheckCircleOutline } from "react-icons/md";
+import Header from "../../components/Header/header";
 const AdminView = () => {
 
     const [agendamentos,setAgendamentos] = useState([{}]);
@@ -56,7 +57,7 @@ const AdminView = () => {
 
     return(
         <div className="AdminViewContainer">
-           
+           <Header data={["Admin","AdminList"]}/>
             <div className="formContainerFather">
             <h1 className="AdminTitle">Agendamentos do PetShop</h1>
                 <table className="formContainer">

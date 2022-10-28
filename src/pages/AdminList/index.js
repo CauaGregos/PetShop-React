@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { useNavigate } from "react-router";
 import { MdOutlineCancel,MdCheckCircleOutline } from "react-icons/md";
+import Header from "../../components/Header/header";
 const Adminlist = () => {
 
     const [adminList,setAdminList] = useState([{}]);
@@ -57,7 +58,7 @@ const Adminlist = () => {
 
     return(
         <div className="AdminViewContainer">
-           
+           <Header data={['Admin','Adminlist']}/>
             <div className="formContainerFather">
             <h1 className="AdminTitle">Lista de Administradores do PetShop</h1>
                 <table className="formContainer">
