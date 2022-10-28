@@ -5,7 +5,7 @@ import axios from "axios";
 import './style.css'
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { MdOutlineCancel } from "react-icons/md";
 const ScheduleView = () => {
     const navigate = useNavigate();
     const [agendamentos,setAgendamentos] = useState([{}]);
@@ -13,7 +13,7 @@ const ScheduleView = () => {
     useEffect(() => {
 
         const user = AuthService.getCurrentUser();
-
+        
         if(!user){
             setTimeout(() =>{
                 navigate("/Redirect");
@@ -23,7 +23,9 @@ const ScheduleView = () => {
         axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
         .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
 
-    
+        
+
+      
 
 
          // list of clients
@@ -35,6 +37,7 @@ const ScheduleView = () => {
         
     }, [agendamentos]);
 
+
     const cancelarAtendimento = (id) => {
         const confirmar = window.confirm('Deseja mesmo cancelar seu atendimento?');
 
@@ -43,7 +46,6 @@ const ScheduleView = () => {
 
     return(
         <div className="scheduleViewContainer">
-            
             <div className="formContainerFather">
             <h1 className="scheduleTitle">Seus Agendamentos</h1>
                 <table className="formContainer">
@@ -63,7 +65,7 @@ const ScheduleView = () => {
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>
                                 <td>{e.especie}</td>
-                                {!e.aprovado && <button className="formButtonSchedule"  onClick={()=>cancelarAtendimento(e.id)}>Cancelar</button>}
+                                {!e.aprovado && <button className="formButtonSchedule"  onClick={()=>cancelarAtendimento(e.id)}><MdOutlineCancel size={17} color="#FFF"/></button>}
                                 
                             </tr>
                     )}

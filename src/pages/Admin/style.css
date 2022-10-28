@@ -42,7 +42,7 @@
     border-width: 0;
     color: white;
     padding: 5px;
-    height: 20px;
+    height: 27px;
     font-size: 12px;
 }
 
@@ -52,10 +52,22 @@
     border-width: 0;
     color: white;
     padding: 5px;
-    height: 20px;
-    margin-right: 10px;
+    height: 27px;
+    margin-right: 4px;
     font-size: 12px;
 }
+
+.formButtonAdminCancel:hover {
+    background-color: #cf575793;
+    transform: scale(0.96);
+}
+
+.formButtonAdminAccept:hover{
+    background-color: #57cf5781;
+    transform: scale(0.96);
+}
+
+
 
 
 table th{

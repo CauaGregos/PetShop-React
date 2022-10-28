@@ -4,7 +4,7 @@ import AuthService from "../../services/AuthService";
 import axios from "axios";
 import './style.css'
 import { useNavigate } from "react-router";
-
+import { MdOutlineCancel,MdCheckCircleOutline } from "react-icons/md";
 const AdminView = () => {
 
     const [agendamentos,setAgendamentos] = useState([{}]);
@@ -78,8 +78,8 @@ const AdminView = () => {
                                 <td>{e.pet}</td>
                                 <td>{e.especie}</td>
                                 <td>{e.email}</td>
-                                <button className="formButtonAdminAccept" onClick={()=>aceitarAtendimento(e)}>Aceitar</button>
-                                <button className="formButtonAdminCancel" onClick={()=>cancelarAtendimento(e.id)}>Cancelar</button>
+                                <button className="formButtonAdminAccept" onClick={()=>aceitarAtendimento(e)}><MdCheckCircleOutline size={17} color="#FFF"/></button>
+                                <button className="formButtonAdminCancel" onClick={()=>cancelarAtendimento(e.id)}><MdOutlineCancel size={17} color="#FFF"/></button>
                             </tr>
                     )}
                 </tbody>
