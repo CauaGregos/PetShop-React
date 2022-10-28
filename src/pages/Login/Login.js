@@ -24,7 +24,7 @@ function Login() {
         let senha = document.getElementById('senha').value
     
         if (!email || !senha) {
-            setMensage("Preencha o username e a senha para continuar!");
+            setMensage("Preencha o email e a senha para continuar!");
         } else {
             AuthService.login(email, senha).then(
                 () => {

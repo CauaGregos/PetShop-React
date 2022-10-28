@@ -4,7 +4,7 @@ import Cat from '../../assets/cat.png'
 import Dog from '../../assets/dog.png'
 
 function Register() {
-    const login = () => {
+    const register = () => {
 
     };
   return (
@@ -26,7 +26,7 @@ function Register() {
                 <input className="inputEmail" placeholder="Nome Completo"/>
                 <input className="inputEmail" placeholder="Email"/>
                 <input className="inputSenha" placeholder="Senha"/>
-                <button className="buttonSubmit" onClick={e=>login()}>Finalizar meu cadastro</button>
+                <button className="buttonSubmit" onClick={e=>register()}>Finalizar meu cadastro</button>
                 <text className="wantCreateAccount" >Já tenho uma conta.<a href="/">Fazer login</a></text>
             </div>
         </div>

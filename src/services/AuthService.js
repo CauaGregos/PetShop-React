@@ -14,7 +14,7 @@ const login = (username,senha) => {
         })
         // whille response do set in local storage my token
         .then((response) => {
-            console.log("response: " + JSON.stringify(response.data.token))
+          
             if (response.data.token) {
                 localStorage.setItem("user", JSON.stringify(response.data));
             }
