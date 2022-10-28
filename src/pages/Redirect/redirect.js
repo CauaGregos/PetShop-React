@@ -14,13 +14,14 @@ const Redirect = () => {
         // if not exist user back to login
         !user&&navigate('/');
         // setTimeout for the user look that information before redirecting
+     
         setTimeout(() =>{
-            axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
-            .then((res) => {navigate('/ScheduleView')}).catch(e=>{})
             axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
-            .then((res) => {navigate('/Admin')}).catch(e=>{})
+            .then((res) => {navigate('/Admin');}).catch(e=>{
+                axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
+                .then((res) => {navigate('/ScheduleView')}).catch(e=>{localStorage.clear();})
+            }) 
         },500)
-        
     }, []);
     return(
         <div>

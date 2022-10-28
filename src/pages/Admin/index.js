@@ -41,7 +41,7 @@ const AdminView = () => {
 
     const aceitarAtendimento = (e) => {
         const confirmar = window.confirm(`Deseja mesmo aprovar o atendimento de ${e.email}?`);
-        // if confirmar like true update data of accept
+        // if confirmar like true update data
         confirmar && axios.put(`http://localhost:5092/api/Agendamento/${e.id}`,{
         id:e.id,
         email:e.email,
