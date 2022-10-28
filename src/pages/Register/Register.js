@@ -5,7 +5,7 @@ import Dog from '../../assets/dog.png'
 
 function Register() {
     const register = () => {
-
+        
     };
   return (
     <div className="container">

@@ -22,12 +22,7 @@ const ScheduleView = () => {
         }
         axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
         .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
-
         
-
-      
-
-
          // list of clients
          let data = [];
          axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
