@@ -9,6 +9,7 @@ import AdminView from '../pages/Admin';
 import Adminlist from '../pages/AdminList';
 import Logout from '../pages/Logout/Logout';
 import Ladingpage from '../pages/Home/Home';
+
 export default function Rotas() {
     return (
         <BrowserRouter>
@@ -21,8 +22,7 @@ export default function Rotas() {
                 <Route path="/admin"  element={<AdminView/>} component={AdminView} />  
                 <Route path="/adminlist"  element={<Adminlist/>} component={Adminlist} /> 
                 <Route path="/logout"  element={<Logout/>} component={Logout} /> 
-                <Route path="/ladingpage"  element={<Ladingpage/>} component={Ladingpage} /> 
-                
+                <Route path="/ladingpage"  element={<Ladingpage/>} component={Ladingpage} />  
             </Routes>
         </BrowserRouter>
         
