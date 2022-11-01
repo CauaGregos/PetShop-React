@@ -60,7 +60,7 @@ const AdminView = () => {
            <Header data={["Admin","AdminList"]}/>
             <div className="formContainerFather">
             <h1 className="AdminTitle">Agendamentos do PetShop</h1>
-                <table className="formContainer">
+                <table className="formContainer2">
                 <thead>
                     <tr>
                         <th>Data</th>
@@ -73,7 +73,7 @@ const AdminView = () => {
                 <tbody>
                     {agendamentos.map(
                         (e) =>
-                            <tr key={e.id}>
+                            <tr key={e.id} style={{backgroundColor:'#F3F3F3'}}>
                                 <td>{e.data}</td>
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>

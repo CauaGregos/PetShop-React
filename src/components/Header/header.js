@@ -8,9 +8,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const header = (props) => {
     return(
-        <Navbar variant="white" bg="white" expand="lg">
+        <Navbar style={{backgroundColor:'#F2BB16'}} expand="lg">
         <Container fluid>
-        <Navbar.Brand href="#home">PetShop Campinas</Navbar.Brand>
+        <Navbar.Brand color='white' href="#home">PetShop Campinas</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-white-example" />
         <Navbar.Collapse id="navbar-white-example">
           <Nav>

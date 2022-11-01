@@ -45,7 +45,7 @@ const ScheduleView = () => {
             <Header data={[]}/>
             <div className="formContainerFather">
             <h1 className="scheduleTitle">Seus Agendamentos</h1>
-                <table className="formContainer">
+                <table className="formContainer2">
                 <thead>
                     <tr>
                         <th>Data</th>
@@ -57,7 +57,7 @@ const ScheduleView = () => {
                 <tbody className="formBodySchedule">
                     {agendamentos.map(
                         (e) =>
-                            <tr style={e.aprovado? {backgroundColor:'#90f18786'}: {}} key={e.id}>
+                            <tr style={e.aprovado ? {backgroundColor:'#90f18786',marginTop:'30%'} : {backgroundColor:'#F3F3F3',marginTop:'30%'}} key={e.id}>
                                 <td>{e.data}</td>
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>

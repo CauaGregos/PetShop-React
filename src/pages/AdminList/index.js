@@ -61,7 +61,7 @@ const Adminlist = () => {
            <Header data={['Admin','Adminlist']}/>
             <div className="formContainerFather">
             <h1 className="AdminTitle">Lista de Administradores do PetShop</h1>
-                <table className="formContainer">
+                <table className="formContainer2">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -72,7 +72,7 @@ const Adminlist = () => {
                 <tbody>
                     {adminList.map(
                         (e) =>
-                            <tr key={e.id}>
+                            <tr key={e.id} style={{backgroundColor:'#F3F3F3'}}>
                                 <td>{e.nome}</td>
                                 <td>{e.email}</td>
                                 <td>{e.role}</td>
