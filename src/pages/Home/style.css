@@ -1,0 +1,29 @@
+.homeView{
+    float: left;
+    background-color: #F2BB16;
+    width:20vw;
+    height: 107vh;
+    min-height: 107vh;
+}
+.dogBanheira{
+    width: 45vw;
+    margin-left:3vw;
+    margin-top: 13vh;
+}
+
+.Cadastrar{
+    border-width: 0;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #F2CE16;
+}
+
+.Cadastrar:hover{
+    background-color: #e7ce55;
+}
+
+.subdescriptionHome{
+    color: rgba(2, 2, 2, 0.531);
+    font-size: 26px;
+    width: 40vw;
+}
