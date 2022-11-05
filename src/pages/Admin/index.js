@@ -13,18 +13,18 @@ const AdminView = () => {
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
-        // check user data
+        // checar se o user existe
         if(!user){
             setTimeout(() =>{
                 navigate("/");
                 window.location.reload();
             },1000)
         }
-        // redirect if user is not authenticated
+        // redireciona caso o user nao tenha a permissao
         axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
         .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect')})
 
-        // list of clients
+        // Lista de clientes
         let data = [];
         axios.get(`http://localhost:5092/api/Agendamento`)
         .then((res) =>{res.data.forEach(e => {
@@ -42,7 +42,7 @@ const AdminView = () => {
 
     const aceitarAtendimento = (e) => {
         const confirmar = window.confirm(`Deseja mesmo aprovar o atendimento de ${e.email}?`);
-        // if confirmar like true update data
+        
         confirmar && axios.put(`http://localhost:5092/api/Agendamento/${e.id}`,{
         id:e.id,
         email:e.email,

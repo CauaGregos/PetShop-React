@@ -12,14 +12,13 @@ function Login() {
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
-        // if user logged before 
+        // se existir o user, redirecionar para a tela de agendamento
         if(user){
             navigate('/ScheduleView')
         }
     }, []);
     
     async function handleSubmit() {
-        // values of input fields
         let email = document.getElementById('email').value
         let senha = document.getElementById('senha').value
     

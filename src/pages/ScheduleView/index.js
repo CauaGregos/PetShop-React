@@ -14,7 +14,7 @@ const ScheduleView = () => {
     useEffect(() => {
 
         const user = AuthService.getCurrentUser();
-        
+        // checo se tem user
         if(!user){
             setTimeout(() =>{
                 navigate("/Redirect");
@@ -24,7 +24,7 @@ const ScheduleView = () => {
             axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
             .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect');})
             
-            // list of clients
+            // lista de clientes
             let data = [];
             axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
             .then((res) =>{res.data.forEach(e => {

@@ -11,10 +11,9 @@ const Redirect = () => {
     const user = AuthService.getCurrentUser();
     useEffect(() => {
        
-        // if not exist user back to login
+        // se nao existir user, volto para o login
         !user&&navigate('/');
-        // setTimeout for the user look that information before redirecting
-     
+ 
         setTimeout(() =>{
             axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
             .then((res) => {navigate('/Admin');}).catch(e=>{

@@ -13,18 +13,18 @@ const Adminlist = () => {
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
-        // check user data
+        // checar se o user existe
         if(!user){
             setTimeout(() =>{
                 navigate("/");
                 window.location.reload();
             },1000)
         }
-        // redirect if user is not authenticated
+        // redireciona caso nao tenha permissao
         axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
         .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect')})
 
-        // list of clients
+        // lista de clientes
         let data = [];
         axios.get(`http://localhost:5092/api/Perfil/AdminList`)
         .then((res) =>{res.data.forEach(e => {

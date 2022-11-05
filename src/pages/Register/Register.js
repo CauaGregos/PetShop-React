@@ -9,7 +9,7 @@ function Register() {
        const nome = document.getElementById('inputNome').value
        const email = document.getElementById('inputEmail').value
        const senha = document.getElementById('inputSenha').value
-       console.log(nome,email,senha);
+     
        axios.post('http://localhost:5092/api/Perfil',{
         id: 0,
         nome: nome,
