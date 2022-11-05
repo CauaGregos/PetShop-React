@@ -14,15 +14,19 @@ export default function Rotas() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/"  element={<Login/>} component={Login} /> 
+                <Route path="/login"  element={<Login/>} component={Login} /> 
                 <Route path="/home"  element={<Schedule/>} component={Schedule} /> 
+
+                {/*Duas rotas de register, um espera params e outra nao*/}
                 <Route path="/register"  element={<Register/>} component={Register} />     
+                <Route path="/register/:email"  element={<Register/>} component={Register} />   
+
                 <Route path="/scheduleview"  element={<ScheduleView/>} component={ScheduleView} />    
                 <Route path="/redirect"  element={<Redirect/>} component={Redirect} />     
                 <Route path="/admin"  element={<AdminView/>} component={AdminView} />  
                 <Route path="/adminlist"  element={<Adminlist/>} component={Adminlist} /> 
                 <Route path="/logout"  element={<Logout/>} component={Logout} /> 
-                <Route path="/ladingpage"  element={<Ladingpage/>} component={Ladingpage} />  
+                <Route path="/"  element={<Ladingpage/>} component={Ladingpage} />  
             </Routes>
         </BrowserRouter>
         

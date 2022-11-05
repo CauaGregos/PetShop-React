@@ -16,7 +16,7 @@ const AdminView = () => {
         // checar se o user existe
         if(!user){
             setTimeout(() =>{
-                navigate("/");
+                navigate("/login");
                 window.location.reload();
             },1000)
         }
@@ -28,7 +28,7 @@ const AdminView = () => {
         let data = [];
         axios.get(`http://localhost:5092/api/Agendamento`)
         .then((res) =>{res.data.forEach(e => {
-            if(e.aprovado==false)
+           
             data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
         }); setAgendamentos(data)})
 
@@ -73,13 +73,14 @@ const AdminView = () => {
                 <tbody>
                     {agendamentos.map(
                         (e) =>
-                            <tr key={e.id} style={{backgroundColor:'#F3F3F3'}}>
+                            <tr key={e.id} style={e.aprovado ? {backgroundColor:'#90f18786'} : {backgroundColor:'#F3F3F3'}}>
                                 <td>{e.data}</td>
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>
                                 <td>{e.especie}</td>
                                 <td>{e.email}</td>
-                                <button className="formButtonAdminAccept" onClick={()=>aceitarAtendimento(e)}><MdCheckCircleOutline size={17} color="#FFF"/></button>
+
+                                {!e.aprovado && <button className="formButtonAdminAccept" onClick={()=>aceitarAtendimento(e)}><MdCheckCircleOutline size={17} color="#FFF"/></button>}
                                 <button className="formButtonAdminCancel" onClick={()=>cancelarAtendimento(e.id)}><MdOutlineCancel size={17} color="#FFF"/></button>
                             </tr>
                     )}

@@ -16,7 +16,7 @@ const Adminlist = () => {
         // checar se o user existe
         if(!user){
             setTimeout(() =>{
-                navigate("/");
+                navigate("/login");
                 window.location.reload();
             },1000)
         }
@@ -24,7 +24,7 @@ const Adminlist = () => {
         axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
         .then((res) => {}).catch(e=>{alert('Você não tem permissao para estar aqui!');navigate('/Redirect')})
 
-        // lista de clientes
+        // lista de adm
         let data = [];
         axios.get(`http://localhost:5092/api/Perfil/AdminList`)
         .then((res) =>{res.data.forEach(e => {

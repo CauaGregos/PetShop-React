@@ -16,6 +16,11 @@
     padding: 10px;
     font-weight: bold;
     background-color: #F2CE16;
+    margin-left:30px;
+}
+
+.inputEmailCadastrar{
+    border-radius: 0px;
 }
 
 .Cadastrar:hover{

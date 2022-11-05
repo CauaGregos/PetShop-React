@@ -8,7 +8,7 @@ const Logout = () => {
     useEffect(() => {
         setTimeout(() =>{
             AuthService.logout();
-            navigate('/');
+            navigate('/login');
         },500)
     }, []);
     return(

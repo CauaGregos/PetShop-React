@@ -12,13 +12,13 @@ const Redirect = () => {
     useEffect(() => {
        
         // se nao existir user, volto para o login
-        !user&&navigate('/');
+        !user&&navigate('/login');
  
         setTimeout(() =>{
             axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
             .then((res) => {navigate('/Admin');}).catch(e=>{
                 axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
-                .then((res) => {navigate('/ScheduleView')}).catch(e=>{localStorage.clear();navigate('/')})
+                .then((res) => {navigate('/ScheduleView')}).catch(e=>{localStorage.clear();navigate('/login')})
             }) 
         },500)
     }, []);
