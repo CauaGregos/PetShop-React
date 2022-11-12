@@ -3,10 +3,37 @@ import React, { useState,useEffect } from "react";
 import './style.css'
 import Dog from '../../assets/banheiraDog.png'
 import { useNavigate } from "react-router";
+import axios from "axios";
+import AuthService from "../../services/AuthService";
+
 
 
 export default function Schedule() {
+  const navegar = useNavigate();
    
+  const agendar =()=> {
+    const user = AuthService.getCurrentUser();
+    
+    console.log(user.user.email ,
+      document.getElementById('inputData').value,
+      document.getElementById('inputHora').value,
+      document.getElementById('inputNome').value,
+      document.getElementById('inputEspecie').value,);
+
+    axios.post("http://localhost:5092/api/Agendamento",{
+      id: 0,
+      email:user.user.email ,
+      data: document.getElementById('inputData').value,
+      horario: document.getElementById('inputHora').value,
+      pet: document.getElementById('inputNome').value,
+      servico: document.getElementById('select').value,
+      especie: document.getElementById('inputEspecie').value,
+      aprovado: false
+    }).then((e)=>{navegar('/scheduleview')})
+
+    
+
+  }
 
   return (
     <div className="containerLogin">
@@ -24,7 +51,22 @@ export default function Schedule() {
             </div>
         </div>
         <div className="scheduleFormView">
-
+        <div>
+            <div style={{marginTop:'17%',marginLeft:'5.5%'}}>
+                <input className="inputNome" id="inputNome" placeholder="Nome do Pet"/>
+                
+                {/* <input className="inputSer" id="inputSer" placeholder="Serviços"/> */}
+                <input className="inputEspecie" id="inputEspecie"  placeholder="Espécie"/>
+                <input className="inputData" id="inputData"  placeholder="DD/MM/AA"/>
+                <input className="inputHora" id="inputHora"  placeholder="XX:XX"/>
+                <select id="select" className="selectSchedule">
+                  <option>Banho</option>
+                  <option>Banho e tosa</option>
+                  <option>Banho e aparação de pelo</option>
+                </select>
+                <button onClick={e=>agendar()} className="buttonSubmitRegister">Agendar</button>
+            </div>
+        </div>
         </div>
     </div>
   );

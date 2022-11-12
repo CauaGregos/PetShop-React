@@ -28,7 +28,7 @@ const ScheduleView = () => {
             let data = [];
             axios.get(`http://localhost:5092/api/Agendamento/${user.user.email}`)
             .then((res) =>{res.data.forEach(e => {
-                data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
+                data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,servico:e.servico,aprovado:e.aprovado})
             }); setAgendamentos(data)})
         
     }, [agendamentos]);
@@ -51,6 +51,7 @@ const ScheduleView = () => {
                         <th>Data</th>
                         <th>Horario</th>
                         <th>Nome do pet</th>
+                        <th>Serviço</th>
                         <th>Especie</th>
                     </tr>
                 </thead>
@@ -61,6 +62,7 @@ const ScheduleView = () => {
                                 <td>{e.data}</td>
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>
+                                <td>{e.servico}</td>
                                 <td>{e.especie}</td>
                                 {!e.aprovado && <button className="formButtonSchedule"  onClick={()=>cancelarAtendimento(e.id)}><MdOutlineCancel size={17} color="#FFF"/></button>}
                                 
@@ -68,7 +70,7 @@ const ScheduleView = () => {
                     )}
                 </tbody>
                 <tfoot>
-                <button className="formButtonAgend">Agendar</button>
+                <button onClick={e=>navigate('/home')} className="formButtonAgend">Agendar</button>
                 </tfoot>
                 </table>
                

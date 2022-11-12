@@ -15,3 +15,23 @@
     margin-left: 25vw;
     background-color: #0000007d;
 }
+.inputData{
+    height: 3vh;
+    text-align: center;
+    width: 7vw;
+    margin-left: 15.0vw;
+    margin-bottom: -4.0vw;
+}
+.inputHora{
+    height: 3vh;
+    text-align: center;
+    width: 7vw;
+    margin-top: 3.5%;
+    margin-left: 24.6vw;
+}
+
+.selectSchedule{
+    text-align: center;
+    margin-right: 3.5vw;
+    margin-top: 1vh;
+}

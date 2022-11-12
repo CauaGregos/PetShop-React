@@ -29,7 +29,7 @@ const AdminView = () => {
         axios.get(`http://localhost:5092/api/Agendamento`)
         .then((res) =>{res.data.forEach(e => {
            
-            data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,aprovado:e.aprovado})
+            data.push({id:e.id,email:e.email,data:e.data,horario:e.horario,pet:e.pet,especie:e.especie,servico:e.servico,aprovado:e.aprovado})
         }); setAgendamentos(data)})
 
     }, [agendamentos]);
@@ -49,6 +49,7 @@ const AdminView = () => {
         data:e.data,
         horario:e.horario,
         pet:e.pet,
+        servico:e.servico,
         especie:e.especie,
         aprovado:true
     })
@@ -67,6 +68,7 @@ const AdminView = () => {
                         <th>Horario</th>
                         <th>Nome do Pet</th>
                         <th>Especie</th>
+                        <th>Serviços</th>
                         <th>Contato</th>
                     </tr>
                 </thead>
@@ -78,6 +80,7 @@ const AdminView = () => {
                                 <td>{e.horario}</td>
                                 <td>{e.pet}</td>
                                 <td>{e.especie}</td>
+                                <td>{e.servico}</td>
                                 <td>{e.email}</td>
 
                                 {!e.aprovado && <button className="formButtonAdminAccept" onClick={()=>aceitarAtendimento(e)}><MdCheckCircleOutline size={17} color="#FFF"/></button>}
