@@ -10,6 +10,10 @@ import AuthService from "../../services/AuthService";
 
 export default function Schedule() {
   const navegar = useNavigate();
+
+  const voltar = () => {
+    navegar('/ScheduleView')
+  }
    
   const agendar =()=> {
     const user = AuthService.getCurrentUser();
@@ -55,16 +59,17 @@ export default function Schedule() {
             <div style={{marginTop:'17%',marginLeft:'5.5%'}}>
                 <input className="inputNome" id="inputNome" placeholder="Nome do Pet"/>
                 
-                {/* <input className="inputSer" id="inputSer" placeholder="Serviços"/> */}
+       
                 <input className="inputEspecie" id="inputEspecie"  placeholder="Espécie"/>
-                <input className="inputData" id="inputData"  placeholder="DD/MM/AA"/>
-                <input className="inputHora" id="inputHora"  placeholder="XX:XX"/>
+                <input className="inputData" id="inputData" type={'date'}  placeholder="DD/MM/AA"/>
+                <input className="inputHora" id="inputHora" type={'time'} placeholder="XX:XX"/>
                 <select id="select" className="selectSchedule">
                   <option>Banho</option>
                   <option>Banho e tosa</option>
                   <option>Banho e aparação de pelo</option>
                 </select>
-                <button onClick={e=>agendar()} className="buttonSubmitRegister">Agendar</button>
+                <button onClick={e=>agendar()} className="buttonSubmitSchedule">Agendar</button>
+                <button onClick={e=>voltar()} className="buttonCancelSchedule">Cancelar</button>
             </div>
         </div>
         </div>
