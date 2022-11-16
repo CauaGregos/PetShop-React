@@ -15,16 +15,21 @@ const Redirect = () => {
         !user&&navigate('/login');
  
         setTimeout(() =>{
+            // mando requisicoes para os dois endpoints que verifica 
+            // a permissao do usuario
             axios.get('http://localhost:5092/api/Home/Admin',{headers: { Authorization: 'Bearer '+ user.token }})
             .then((res) => {navigate('/Admin');}).catch(e=>{
                 axios.get('http://localhost:5092/api/Home/Cliente',{headers: { Authorization: 'Bearer '+ user.token }})
                 .then((res) => {navigate('/ScheduleView')}).catch(e=>{localStorage.clear();navigate('/login')})
             }) 
-        },500)
+        },1000)
     }, []);
+
+    const size = window.screen.width
+    const windowHeight = window.screen.height
     return(
         <div>
-            <h1>Redirecionando....</h1>
+            <img style={{alignSelf:'center',width:300,marginLeft:(size*0.4),marginTop:windowHeight*0.3}} src={require('../../assets/loading.gif')}></img>
         </div>
     )
 
