@@ -48,10 +48,9 @@ export default function Schedule() {
             <div style={{marginTop:'30%',textAlign:'center',alignSelf:'center',alignContent:'center'}}>
 
             <div className="subTextView">
-                <p className="subdescriptionHome">Nosso dever e fazer bem à aquele que te faz bem? Nosso dever e fazer bem à aquele que te faz bem?
-                Nosso dever e fazer bem à aquele que te faz bem? Nosso dever e fazer bem à aquele que te faz bem?</p> 
+                <p className="subdescriptionHome">Nosso dever é fazer bem aquele que te faz bem, em nosso petshop você encontrará todo o apoio e suporte para 
+                seu bixinho, temos profissionais treinados e totalmente capacitados para dar aquele que te fez bem o melhor dia da sua vida.</p> 
             </div>
-            <button className="Cadastrar">Me cadastrar</button>
             </div>
         </div>
         <div className="scheduleFormView">

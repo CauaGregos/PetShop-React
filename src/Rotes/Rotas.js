@@ -17,7 +17,7 @@ export default function Rotas() {
                 <Route path="/login"  element={<Login/>} component={Login} /> 
                 <Route path="/home"  element={<Schedule/>} component={Schedule} /> 
 
-                {/*Duas rotas de register, um espera params e outra nao*/}
+                {/*Duas rotas de register, um espera parametros e outra nao*/}
                 <Route path="/register"  element={<Register/>} component={Register} />     
                 <Route path="/register/:email"  element={<Register/>} component={Register} />   
 

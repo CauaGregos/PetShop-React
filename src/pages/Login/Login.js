@@ -52,7 +52,7 @@ function Login() {
                 <p className="descriptionLogin">Aqui você encontra tudo para seu pet!</p> 
             </div>
             <div className="subTextView">
-                <p className="subdescription">Nosso dever e fazer bem à aquele que te faz bem?</p> 
+                <p className="subdescription">Nosso dever e fazer bem à aquele que te faz bem</p> 
             </div>
         
         </div>
